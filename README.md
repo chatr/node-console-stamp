@@ -1,3 +1,7 @@
+# [`console-stamp`](https://github.com/starak/node-console-stamp/tree/main) fork with a legacy `chalk` dependency
+
+------------
+
 # Console-stamp 3
 
 [![npm][npm-image]][npm-url]
@@ -36,8 +40,8 @@ The default behaviour is to add a prefix to each log statement with timestamp in
 You can change this by provinding an [options](#options) object as the second parameter.
 
 ```js
-require('console-stamp')(console, { 
-    format: ':date(yyyy/mm/dd HH:MM:ss.l)' 
+require('console-stamp')(console, {
+    format: ':date(yyyy/mm/dd HH:MM:ss.l)'
 } );
 
 console.log('Hello, World!');
@@ -50,8 +54,8 @@ console.log('Hello, World!');
 Notice how the log level is suddenly missing. You need to add it specifically to the format string.
 
 ```js
-require('console-stamp')(console, { 
-    format: ':date(yyyy/mm/dd HH:MM:ss.l) :label' 
+require('console-stamp')(console, {
+    format: ':date(yyyy/mm/dd HH:MM:ss.l) :label'
 } );
 
 console.log('Hello, World!');
@@ -96,7 +100,7 @@ With that in mind, some consessions has been made and you will probably need to 
 
 For example, `{ pattern: 'dd.mm.yyyy HH:MM:ss.l'}` is replaced by `{ format: ':date(dd.mm.yyyy HH:MM:ss.l)' }`.
 
-PS: Providing a string with a date format based on [dateformat](https://www.npmjs.com/package/dateformat) as a second parameter is still supported. 
+PS: Providing a string with a date format based on [dateformat](https://www.npmjs.com/package/dateformat) as a second parameter is still supported.
 
 #### `options.label` is gone
 
@@ -119,8 +123,8 @@ require('console-stamp')( console, 'yyyy/mm/dd HH:MM:ss.l' );
 To set the timestamp format using the [options](#options) object you can use the `date` token.
 
 ```js
-require('console-stamp')(console, { 
-    format: ':date(yyyy/mm/dd HH:MM:ss.l)' 
+require('console-stamp')(console, {
+    format: ':date(yyyy/mm/dd HH:MM:ss.l)'
 } );
 
 console.log('Hello, World!');
@@ -166,16 +170,16 @@ There are only three predefined tokens registered by default. These are:
 **:date([format][,utc])**
 * **format** {String}<br>
     Containing the date format based on [dateformat](https://www.npmjs.com/package/dateformat)<br>
-    **Default**: 'dd.mm.yyyy HH:MM:ss.l' 
+    **Default**: 'dd.mm.yyyy HH:MM:ss.l'
 * **utc** {Boolean}<br>
     Set to `true` will return UTC-time <br>
     **Default**: false
-    
+
 **:label([padding])**
 * **padding** {Number}<br>
     The total length of the label, including the brackets and padding<br>
     **Default:** 7
-    
+
 **:msg**
 * If the `:msg` token is provided in `format`, the output from the console will be returned in its place, otherwise the console output will be added as the last output, with no formatting.
 
@@ -206,7 +210,7 @@ The token callback function is called with one argument, representing an Object 
 * `params` {Array} <br>
     The token parameters (ex: The token call `:label(7)` will have params `[7]`)
 * `tokens` {Object} <br>
-    All the defined tokens, incl. the defaults 
+    All the defined tokens, incl. the defaults
 * `defaultTokens` {Object} <br>
     Only the default tokens, even if it's been redefined in options
 
@@ -259,7 +263,7 @@ levels = {
 };
 ```
 
-The **extend** option enables the usage of custom console logging methods to be 
+The **extend** option enables the usage of custom console logging methods to be
 used with this module, for example:
 
 ```js
@@ -305,7 +309,7 @@ The second parameter is an object with several options. As a feature this parame
 * **options.level** {String}<br>A string choosing the most verbose logging function to allow.<br>
     **Default**: `log`
 
-* **options.extend** {Object}<br>An object describing methods and their associated log level, 
+* **options.extend** {Object}<br>An object describing methods and their associated log level,
     to extend the existing `method <-> log level` pairs.<br>
     For an example see [Custom methods](#custommethods).
 
@@ -314,6 +318,6 @@ The second parameter is an object with several options. As a feature this parame
 
 * **options.stderr** {WritableStream}<br>A custom `stderr` to use with [custom console](#customconsole).<br>
     **Default:** `options.stdout` or `process.stderr`
-    
+
 * **options.preventDefaultMessage** {Boolean}<br>If set to `true` Console-stamp will not print out the standard output from the console. This can be used in combination with a custom message token.<br>**Default:** `false`
 

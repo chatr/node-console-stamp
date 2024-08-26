@@ -10,6 +10,7 @@ const {
     generatePrefix,
     FakeStream
 } = require('../lib/utils.js');
+const nullDevice = process.platform === 'win32' ? '\\\\.\\NUL' : '/dev/null';
 
 describe('utils', () => {
     describe('generateConfig default', () => {
@@ -27,8 +28,8 @@ describe('utils', () => {
 
     describe('generateConfig override', () => {
         it('should override properties', () => {
-            const stdout = fs.createWriteStream('/dev/null');
-            const stderr = fs.createWriteStream('/dev/null');
+            const stdout = fs.createWriteStream(nullDevice);
+            const stderr = fs.createWriteStream(nullDevice);
             const config = generateConfig({
                 level: 'log',
                 format: ':foo(bar)',
@@ -95,8 +96,8 @@ describe('utils', () => {
 
     describe('selectOutputStream override', () => {
         it('should override output stream', () => {
-            const stdout = fs.createWriteStream('/dev/null');
-            const stderr = fs.createWriteStream('/dev/null');
+            const stdout = fs.createWriteStream(nullDevice);
+            const stderr = fs.createWriteStream(nullDevice);
             const config = generateConfig({
                 stdout: stdout,
                 stderr: stderr,

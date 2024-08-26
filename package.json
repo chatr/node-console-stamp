@@ -1,7 +1,7 @@
 {
-  "name": "console-stamp",
+  "name": "@chatra/console-stamp",
   "main": "index.js",
-  "version": "3.1.2",
+  "version": "1.0.0",
   "scripts": {
     "test": "jest",
     "test:watch": "nodemon --exec npm test",
@@ -73,7 +73,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "chalk": "^4.1.2",
+    "chalk": "^1.1.1",
     "dateformat": "^4.6.3"
   },
   "devDependencies": {

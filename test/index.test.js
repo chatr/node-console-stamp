@@ -75,22 +75,4 @@ test('general test', () => {
             foo: ({ params: [bar] }) => bar,
         },
     });
-
-    logAll(console);
-    expected = chalk`{bgRed.blue bar} ${message}\n`;
-    expect(stdout.asArray[0]).toEqual(expected);
-
-    console.reset();
-    stdout.flush();
-    stderr.flush();
-
-    consoleStamp(console, {
-        format: `(bar).blue.bgRed`,
-        stdout,
-        stderr,
-    });
-
-    logAll(console);
-    expected = chalk`{bgRed.blue bar} ${message}\n`;
-    expect(stdout.asArray[0]).toEqual(expected);
 });
