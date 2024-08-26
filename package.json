@@ -1,7 +1,7 @@
 {
   "name": "@chatra/console-stamp",
   "main": "index.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "test": "jest",
     "test:watch": "nodemon --exec npm test",
