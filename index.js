@@ -1,3 +1,6 @@
+const chalk = require( 'chalk' );
+chalk.enabled = true;
+
 const { checkLogLevel, generateConfig, generatePrefix, selectOutputStream, FakeStream } = require( './lib/utils.js' );
 let consoleStamp = ( con, options = {} ) => {
 
